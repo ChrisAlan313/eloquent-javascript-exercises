@@ -1,4 +1,3 @@
-'use strict'
 // Exercise: Make a triange of #'s. Must be 7 tall and 7 wide at the base.
 
 /**
@@ -9,11 +8,11 @@
  */
 function triangleIter(n, str) {
   let result = '';
-  for (let i = 0; i < n; i++) {
-    result += str.repeat(i + 1) + '\n';
+  for (let i = 0; i < n; i += 1) {
+    result += `${str.repeat(i + 1)}\n`;
   }
 
   return result;
 }
 
-console.log(triangleIter(7, '#'))
+console.log(triangleIter(7, '#'));

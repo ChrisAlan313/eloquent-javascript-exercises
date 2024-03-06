@@ -1,4 +1,3 @@
-'use strict'
 // Exercise:
 // 1. Create a function, arrayToList, that takes an array and builds a linked
 //    list from it.
@@ -41,25 +40,26 @@ function arrayToList(arr) {
     return root;
 }
 
-const exampleList = arrayToList([0, 1, 2, 3, 4])
-console.log(JSON.stringify(exampleList))
+const exampleList = arrayToList([0, 1, 2, 3, 4]);
+console.log(JSON.stringify(exampleList));
 
 /**
  * listToArray takes a linked list and returns an array with the same objects in
  * the same order.
- * 
+ *
  * @param {object} list - This is the list that will be returned as an array.
  * @returns {any[]} This is the array that was created from the list.
  */
 function listToArray(list) {
-    // Initialize state
-    const result = [];
-    result.push(list.value)
-    while (list.rest !== null) {
-        list = list.rest;
-        result.push(list.value)
-    }
-    return result;
+  // Initialize state
+  const result = [];
+  let runningList = list;
+  result.push(runningList.value);
+  while (runningList.rest !== null) {
+    runningList = runningList.rest;
+    result.push(runningList.value);
+  }
+  return result;
 }
 
 console.log(listToArray(exampleList));
@@ -76,10 +76,10 @@ console.log(listToArray(exampleList));
  * element as the new head.
  */
 function prepend(element, list) {
-    return {
-        value: element,
-        rest: list
-    }
+  return {
+    value: element,
+    rest: list,
+  };
 }
 
 console.log(JSON.stringify(prepend(0, exampleList)))
@@ -87,21 +87,21 @@ console.log(JSON.stringify(prepend(0, exampleList)))
 /**
  * nth takes a list and a number and returns the element at the given position
  * of the list. If no such nth element exists, undefined is returned.
- * 
+ *
  * @param {object} listRoot - This is the first element of a list.
  * @param {number} number - This is the how many times we will step down the
  * list to find the returned object.
  * @returns {object} This is the nth object in the list.
  */
 function nth(listRoot, number) {
-    if (number === 0) {
-        return listRoot;
-    }
-    if (listRoot.rest === null) {
-        return undefined;
-    }
+  if (number === 0) {
+    return listRoot;
+  }
+  if (listRoot.rest === null) {
+    return undefined;
+  }
 
-    return nth(listRoot.rest, number - 1);
+  return nth(listRoot.rest, number - 1);
 }
 
-console.log(nth(exampleList, 2))
+console.log(nth(exampleList, 2));

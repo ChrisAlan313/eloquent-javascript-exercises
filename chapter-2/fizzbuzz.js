@@ -13,19 +13,19 @@
  * newlines separating each iteration.
  */
 function fizzbuzz(low, high) {
-  let result = ''
-  for (let i = low; i < high; i++) {
+  let result = '';
+  for (let i = low; i < high; i += 1) {
     if (i % 15 === 0) {
-      result += 'FizzBuzz\n'
+      result += 'FizzBuzz\n';
     } else if (i % 3 === 0) {
-      result += 'Fizz\n'
+      result += 'Fizz\n';
     } else if (i % 5 === 0) {
-      result += 'Buzz\n'
+      result += 'Buzz\n';
     } else {
-      result += `${i}\n`
+      result += `${i}\n`;
     }
   }
-  return result
+  return result;
 }
 
-console.log(fizzbuzz(1, 101))
+console.log(fizzbuzz(1, 101));

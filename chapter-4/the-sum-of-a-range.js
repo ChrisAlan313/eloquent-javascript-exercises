@@ -8,6 +8,20 @@
 // 3. Modify the range function to take an optional third argument which serves
 // as a "step" value. ie. range(1, 10, 2) -> [1, 3, 5, 7, 9]
 
+function validateRange(start, end, step) {
+  // Guard against cases where end is "behind" start
+  if (step > 0 && start > end) {
+    throw Error('Start must be less than end if step is positive');
+  }
+  if (step < 0 && start < end) {
+    throw Error('Start must be greater than end if step is negative');
+  }
+  // Guard against case where there is no iteration
+  if (step === 0) {
+    throw Error('Step must not be 0');
+  }
+}
+
 /**
  * range takes three arguments, start, end and optionally step, and returns an
  * array of numbers within that range. If step was given, then those numbers
@@ -44,9 +58,9 @@ function range(start, end, step = 1) {
   return result;
 }
 
-console.log(range(1, 10))
-console.log(range(1, 10, 2))
-console.log(range(10, 1, -1))
+console.log(range(1, 10));
+console.log(range(1, 10, 2));
+console.log(range(10, 1, -1));
 
 /**
  * sum takes an array of numbers and returns the sum of those numbers.
@@ -56,27 +70,7 @@ console.log(range(10, 1, -1))
  * argument.
  */
 function sum(numbers) {
-  console.log(numbers)
-  let result = 0;
-  for (let number of numbers) {
-    result += number;
-  }
-  return result;
+  return numbers.reduce((a, b) => a + b);
 }
 
-console.log(sum(range(1, 10)))
-
-
-function validateRange(start, end, step) {
-  // Guard against cases where end is "behind" start
-  if (step > 0 && start > end) {
-    throw Error("Start must be less than end if step is positive");
-  }
-  if (step < 0 && start < end) {
-    throw Error("Start must be greater than end if step is negative");
-  }
-  // Guard against case where there is no iteration
-  if (step === 0) {
-    throw Error("Step must not be 0");
-  }
-}
+console.log(sum(range(1, 10)));
