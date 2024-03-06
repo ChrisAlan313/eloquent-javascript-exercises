@@ -1,5 +1,3 @@
-'use strict'
-
 // Exercise: Make a program to output an 8x8 chessboard. Then make the widthO
 // and height variable.
 
@@ -13,35 +11,31 @@
   * @param {number} height - The number of characters tall the "board" is.
   * @returns {string} This is one long string where each row of the board is
   * separated by a newline character.
-  */ 
+  */
 function chessboard(width, height) {
   let result = '';
   // numOfCharacters is a bit of a misnomer. It doesn't count newlines.
   const numOfCharacters = width * height;
   // Starting the row counter with 0
   // NOTE: First row is even
-  let rowNum = 0
-  for (let i = 0; i < numOfCharacters; i++) {
+  let rowNum = 0;
+  for (let i = 0; i < numOfCharacters; i += 1) {
     // For even rows, if i is even, ' ', else '#'
     // For odd rows, if i is even, '#', else ' '
-    if (rowNum % 2 === 0) {
-      if (i % 2 === 0) {
-        result += ' '
-      } else {
-        result += '#'
-      }
-    } else {
-      if (i % 2 === 0) {
-        result += '#'
-      } else {
-        result += ' '
-      }
+    if (rowNum % 2 === 0 && i % 2 === 0) {
+      result += ' ';
+    } else if (rowNum % 2 === 0 && i % 2 !== 0) {
+      result += '#';
+    } else if (rowNum % 2 !== 0 && i % 2 === 0) {
+      result += '#';
+    } else if (rowNum % 2 !== 0 && i % 2 !== 0) {
+      result += ' ';
     }
 
     // Now that we have our character set, we must decide if we will increment
     // the rowNum and add a newline, ie. move a row down.
     if (i % width === 0) {
-      rowNum++;
+      rowNum += 1;
       result += '\n';
     }
   }
@@ -49,8 +43,8 @@ function chessboard(width, height) {
   return result;
 }
 
-console.log(chessboard(8, 8))
-console.log(chessboard(1, 8))
-console.log(chessboard(8, 1))
-console.log(chessboard(2, 8))
-console.log(chessboard(8, 4))
+console.log(chessboard(8, 8));
+console.log(chessboard(1, 8));
+console.log(chessboard(8, 1));
+console.log(chessboard(2, 8));
+console.log(chessboard(8, 4));

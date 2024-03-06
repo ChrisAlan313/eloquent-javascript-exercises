@@ -1,4 +1,3 @@
-'use strict'
 // Exercise:
 //
 // 1. Create a range function that takes two arguments, start and end,
