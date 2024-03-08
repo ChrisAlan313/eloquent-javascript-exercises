@@ -17,27 +17,27 @@
  * which were in the array that was passed to it.
  */
 function arrayToList(arr) {
-    // Make new object with value pointing at arr[0] item in array and rest ->
-    // null
-    const root = {
-        value: arr[0],
-        rest: null
-    }
-    // Loop over array and do the following
-    let currentNode = root;
-    for (let i = 0; i < arr.length - 1; i++) {
-        // 1. Make a new object with value pointing at the next element (arr[n+1])
-        //    and rest -> null
-        const next = {
-            value: arr[i + 1],
-            rest: null
-        }
-        // 2. Set the rest attribute of this element (arr[n]) to the object in step 1
-        currentNode.rest = next;
-        currentNode = next;
-    }
+  // Make new object with value pointing at arr[0] item in array and rest ->
+  // null
+  const root = {
+    value: arr[0],
+    rest: null,
+  };
+  // Loop over array and do the following
+  let currentNode = root;
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    // 1. Make a new object with value pointing at the next element (arr[n+1])
+    //    and rest -> null
+    const next = {
+      value: arr[i + 1],
+      rest: null,
+    };
+    // 2. Set the rest attribute of this element (arr[n]) to the object in step 1
+    currentNode.rest = next;
+    currentNode = next;
+  }
 
-    return root;
+  return root;
 }
 
 const exampleList = arrayToList([0, 1, 2, 3, 4]);
@@ -82,7 +82,7 @@ function prepend(element, list) {
   };
 }
 
-console.log(JSON.stringify(prepend(0, exampleList)))
+console.log(JSON.stringify(prepend(0, exampleList)));
 
 /**
  * nth takes a list and a number and returns the element at the given position

@@ -12,5 +12,5 @@ function myMin(num1, num2) {
   return num1 < num2 ? num1 : num2;
 }
 
-console.log("From 2 and 4", myMin(2, 4));
-console.log("From 8 and 4", myMin(8, 4));
+console.log('From 2 and 4', myMin(2, 4));
+console.log('From 8 and 4', myMin(8, 4));
